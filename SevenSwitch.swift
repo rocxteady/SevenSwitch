@@ -297,7 +297,7 @@ import QuartzCore
         startTrackingValue = self.on
         didChangeWhileTracking = false
         
-        let activeKnobWidth = self.bounds.size.height - 6 + 5
+        let activeKnobWidth = self.bounds.size.height - self.thumbInset*2.0 + 5
         isAnimating = true
         
         UIView.animate(withDuration: 0.3, delay: 0.0, options: [UIViewAnimationOptions.curveEaseOut, UIViewAnimationOptions.beginFromCurrentState], animations: {
@@ -397,7 +397,7 @@ import QuartzCore
             // thumb
             let normalKnobWidth = frame.size.height - self.thumbInset*2.0
             if self.on {
-                thumbView.frame = CGRect(x: frame.size.width - (normalKnobWidth + self.thumbInset), y: self.frame.size.height/2.0 - (self.frame.size.height - self.thumbInset*2.0)/2.0, width: frame.size.height - 2, height: normalKnobWidth)
+                thumbView.frame = CGRect(x: frame.size.width - (normalKnobWidth + self.thumbInset), y: self.frame.size.height/2.0 - (self.frame.size.height - self.thumbInset*2.0)/2.0, width: frame.size.height - self.thumbInset*2.0, height: normalKnobWidth)
                 thumbImageView.frame = CGRect(x: frame.size.width - normalKnobWidth, y: 0, width: normalKnobWidth, height: normalKnobWidth)
             }
             else {
@@ -548,4 +548,3 @@ import QuartzCore
     
     
 }
-
